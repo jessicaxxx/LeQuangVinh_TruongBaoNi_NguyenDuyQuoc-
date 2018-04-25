@@ -256,7 +256,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="snipcart-thumb">
 								
                     			
-											<a href="single.html"><img title=" " alt=" " src="images/<?php echo $row['image']?>" /></a>		
+											<a href="single.html"><img  height="140" width="140" title=" " alt=" " src="images/<?php echo $row['image']?>" /></a>		
 											<p><?php echo $row['name']?></p>
 											<h4><?php echo $row['price']?>$<span><?php echo $row['detail']?></span></h4>
 								

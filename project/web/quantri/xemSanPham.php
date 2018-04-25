@@ -103,7 +103,7 @@
 										<td><?php echo $row['name']?></td>
 										<td><?php echo $row['price']?></td>
 										<td><?php echo $row['detail']?></td>
-										<td><img src="../images/<?php echo $row['image']?>" /></td>
+										<td><img   height="140" width="140" src="../images/<?php echo $row['image']?>" /></td>
 										<td><?php echo $row['name_categogy']?></td>
 										<td><a href="">edit</a></td>
 										<td><a href="">delete</a></td>

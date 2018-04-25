@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -81,38 +82,52 @@
 							<h4 class="text-center">Add Product </h4>
 						</div>
 						<div class="clearfix"></div>
-						<form method="post">
-							<div class="form">							
+						<form method="post" action="them.php" enctype="multipart/form-data">
+							<div class="form" >							
 								<table class="table">
 							      <tr>
 							        <td><P>Name Product </p></td>
-							        <td><input type="text" name="title" class="form-control"></td>
+							        <td><input type="text" name="name" class="form-control"></td>
 							      </tr>
 							     <tr>
 							        <td><P>Price </p></td>
-							        <td><input type="text" name="title" class="form-control"></td>
+							        <td><input type="text" name="price" class="form-control"></td>
 							      </tr>
 							      <tr>
-							        <td><P>Discount </p></td>
-							        <td><input type="text" name="title" class="form-control"></td>
+							        <td><P>detail </p></td>
+							        <td><input type="text" name="detail" class="form-control"></td>
 							      </tr>
 							      <tr>
 							        <td><P>Image</p></td>
-							        <td><input type="file" name="img" class="form-control"></td>
+							        <td> <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+   									 </td>
+							      </tr>
+							      <tr>
+							        <td><P>created</p></td>
+							        <td><input name="created" type="date"" class="form-control"></td>
+							      </tr>
+							      <tr>
+							        <td><P>modified</p></td>
+							        <td><input input name="modified" type="date" class="form-control"></td>
 							      </tr>
 							      <tr>
 							        <td><p>Catalog</p></td>
-							        <td><select name="cat" class="form-control">
-										<option value="0">Select Catalog</option>
-										<option value="">danh muc 1</option>
-										<option value="">danh muc 2</option>
+							        <td><select name="catalog" class="form-control">
+										<option value="1">Select Catalog</option>
+										<option value="2">Households</option>
+										<option value="3">Veggies & Fruits</option>
+										<option value="4">Kitchen</option>
+										<option value="5">Short Codes</option>
+										<option value="6">Beverages</option>
+										<option value="7">Pet Food</option>
+										<option value="8">Frozen Foods</option>
 									</select>
 									</td>
 							      </tr>							      
 							  </table>							
 							</div>
 							<div class="col-md-3 form-group pull-right">
-								 <input type="submit" name="ok" value="saves" class="btn btn-primary btn-block">
+								 <input type="submit" name="submit" class="btn btn-primary btn-block">
 							</div>
 						</form>
 					</div><!--end .content-->
@@ -121,3 +136,4 @@
 	</div>
 	</body>
 <html>
+

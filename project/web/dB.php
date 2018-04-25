@@ -45,6 +45,13 @@ define('DB_NAME','shoponline');
 	return getdata($result);
 	$conn->close();
 	}
+	function ADDproduct_database($category_id,$name,$price,$detail,$image,$created,$modified){
+		$conn = connectDB();
+		$sql = "INSERT INTO product(category_id,name,price,detail,image,created,modified) VALUES ($category_id,'$name','$price','$detail','$image','$created','$modified')";
+		$result = $conn->query($sql);
+		return $result;
+		$conn->close();
+	}
 
 	
 
