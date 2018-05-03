@@ -81,7 +81,7 @@
 							<h4 class="text-center">Catalog</h4>
 						</div>
 						<div class="clearfix"></div>				
-								<table class="table table-bordered" style="margin-top:20px;">
+								<table class="table table-bordered" style="margin-top:20px;" >
 									<tr class="bg-info">
 										<td>id</td>
 										<td>title</td>

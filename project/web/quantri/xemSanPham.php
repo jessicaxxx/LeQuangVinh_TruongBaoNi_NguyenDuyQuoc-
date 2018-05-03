@@ -1,3 +1,6 @@
+<?php
+require_once '../dB.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -93,9 +96,8 @@
 										<td>delete</td>
 									</tr>
 									<?php
-									//require'models/dB.php';
-									require_once '../dB.php';
-									$ADDproducts = ADDproducts();
+								      $db = new db();
+									$ADDproducts = $db->ADDproducts();
 									foreach($ADDproducts as $row){
 									?>
 									<tr>

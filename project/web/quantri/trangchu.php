@@ -1,3 +1,6 @@
+<?php
+require_once '../dB.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -51,7 +54,7 @@
 				      </div>
 				      <div id="danhmuc" class="panel-collapse collapse">
 				        <ul id="home" class="danhmuc">
-							<li><a href="themSanPham.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add Product  </a></li>
+							<li><a href="themSanPham.html"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add Product  </a></li>
 							<li><a href="xemSanPham.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  View Product </a></li>
 						</ul>
 				      </div>

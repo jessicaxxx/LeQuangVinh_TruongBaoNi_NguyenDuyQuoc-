@@ -240,15 +240,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<h3>Hot Offers</h3>
 				<?php
-		
-                        $page = isset($_GET['page'])?$_GET['page']:1;
-                        $count = 8;
-                        $getproducts = $db->getproducts($page,$count);
-              
-              
+				 $key =$_GET['key']; 
+				$search = $db->search($key);      
                  	?>
 					<?php
-                       foreach($getproducts  as $row){
+                       foreach($search  as $row){
                   						  ?>
 			<div class="agile_top_brands_grids">
 				<div class="col-md-3 top_brand_left">
@@ -304,23 +300,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	</div>
 
-		 <?php 
-                        $base_url = $_SERVER['PHP_SELF'];
-                       $total_rows = $db->countproducts();
-                       $pagination=$db->pagination($base_url,$total_rows,$page,$count);
-
-                       
-                   ?>
-		<div class="container">
-			<div class="top-brands">
-                     <ul class="pagination pagination-lg">
-                     	
-   				<li><?php echo $pagination ?></li>
-
-    				
-  						</ul>
-  						</div>
-  				</div>
 <!-- //top-brands -->
 <!-- fresh-vegetables -->
 	<div class="fresh-vegetables">

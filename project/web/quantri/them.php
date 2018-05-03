@@ -23,6 +23,8 @@ if(isset($_POST["submit"])) {
         $uploadOk = 0;
     }
 }
+  $db = new db();
+$db->ADDproduct_database()
 if(ADDproduct_database($category_id,$name,$price,$detail,$image,$created,
 	$modified))
 {
