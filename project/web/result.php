@@ -5,7 +5,14 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-require "dB.php";
+require "quantri/app/config.php";
+
+spl_autoload_register(function	($class_name)	{
+require	"./quantri/app/".$class_name .	'.php';
+});
+$product =	new	product();
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -140,8 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
 						<?php 
-                        $db = new db();
-						$category = $db->category();
+                        $category = $product->category();
 						?>
 						<?php
                         foreach($category as $row){
@@ -241,7 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Hot Offers</h3>
 				<?php
 				 $key =$_GET['key']; 
-				$search = $db->search($key);      
+				$search = $product->search($key);      
                  	?>
 					<?php
                        foreach($search  as $row){

@@ -5,7 +5,14 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
-require "dB.php";
+require "quantri/app/config.php";
+
+spl_autoload_register(function	($class_name)	{
+require	"./quantri/app/".$class_name .	'.php';
+});
+$product =	new	product();
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,8 +78,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-								<li><a href="login.html">Login</a></li> 
-								<li><a href="login.html">Sign Up</a></li>
+								<li><a href="login.php">Login</a></li> 
+								<li><a href="login.php">Sign Up</a></li>
 							</ul>
 						</div>                  
 					</div>	
@@ -140,8 +147,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
 						<?php 
-                        $db = new db();
-						$category = $db->category();
+               
+						$category = $product->category();
 						?>
 						<?php
                         foreach($category as $row){
@@ -243,7 +250,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
                         $page = isset($_GET['page'])?$_GET['page']:1;
                         $count = 8;
-                        $getproducts = $db->getproducts($page,$count);
+                        $getproducts = $product->getproducts($page,$count);
               
               
                  	?>
@@ -306,8 +313,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		 <?php 
                         $base_url = $_SERVER['PHP_SELF'];
-                       $total_rows = $db->countproducts();
-                       $pagination=$db->pagination($base_url,$total_rows,$page,$count);
+                       $total_rows = $product->countproducts();
+                       $pagination=$product->pagination($base_url,$total_rows,$page,$count);
 
                        
                    ?>

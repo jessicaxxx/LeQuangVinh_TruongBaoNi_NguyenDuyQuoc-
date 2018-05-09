@@ -10,7 +10,7 @@ class db
 
 	public function __construct()
 	{
-		self::$conn = new mysqli("localhost","root","","shoponline");
+		self::$conn = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 		self::$conn->set_charset('utf8');
 	}
 	

@@ -1,15 +1,13 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---><?php
-require "dB.php";
-$db = new db();
-$category_id=$_GET['category_id'];
-$category_product=$db->category_product($category_id);
-$category = $db->category();
-$ADDproducts = $db->Allproducts();
+
+<?php
+require "quantri/app/config.php";
+spl_autoload_register(function	($class_name)	{
+require	"./quantri/app/".$class_name .	'.php';
+});
+
+$product =	new	product();
+
+
 
 
 ?>
@@ -158,6 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
 						<?php 
+						$category = $product->category();
                  
                         foreach($category as $row){
                     	?>
@@ -227,7 +226,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Hot Offers</h3>
 				<?php
 
-    
+							$category_id=$_GET['category_id'];
+    						$category_product = $product->category_product();
                        foreach($category_product  as $row){
                   						  ?>
 			<div class="agile_top_brands_grids">

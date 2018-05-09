@@ -1,5 +1,12 @@
 <?php
-require_once '../dB.php';
+require "app/config.php";
+
+spl_autoload_register(function	($class_name)	{
+require	"./app/".$class_name .	'.php';
+});
+$product =	new	product();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,9 +103,8 @@ require_once '../dB.php';
 										<td>delete</td>
 									</tr>
 									<?php
-								      $db = new db();
-									$ADDproducts = $db->ADDproducts();
-									foreach($ADDproducts as $row){
+									$products = $product->Allproducts();
+									foreach($products as $row){
 									?>
 									<tr>
 										<td><?php echo $row['product_id']?></td>
