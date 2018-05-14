@@ -11,6 +11,51 @@ $product =	new	product();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<style>
+.button {
+  display: inline-block;
+  padding: 5px 5px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.button2 {
+      display: inline-block;
+  padding: 5px 5px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #f44336;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+.button2:hover {background-color: #f44336}
+
+.button2:active {
+  background-color: #f44336;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
 	<meta charset=utf-8 />
 	<title>View Product</title>
 		<link rel=stylesheet href="css/bootstrap.min.css" />
@@ -61,7 +106,7 @@ $product =	new	product();
 				      </div>
 				      <div id="danhmuc" class="panel-collapse collapse">
 				        <ul id="home" class="danhmuc">
-							<li><a href="themSanPham.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add Product  </a></li>
+							<li><a href="themSanPham.html"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add Product  </a></li>
 							<li><a href="xemSanPham.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  View Product </a></li>
 						</ul>
 				      </div>
@@ -103,7 +148,7 @@ $product =	new	product();
 										<td>delete</td>
 									</tr>
 									<?php
-									$products = $product->Allproducts();
+									$products = $product->ADDproducts();
 									foreach($products as $row){
 									?>
 									<tr>
@@ -113,8 +158,10 @@ $product =	new	product();
 										<td><?php echo $row['detail']?></td>
 										<td><img   height="140" width="140" src="../images/<?php echo $row['image']?>" /></td>
 										<td><?php echo $row['name_categogy']?></td>
-										<td><a href="">edit</a></td>
-										<td><a href="">delete</a></td>
+										<td><a href="suaSanPham.php?idedit=<?php echo $row['product_id']?>" class="btn btn-info" role="button">Edit</a></td>
+										<td><a href="delete.php?id=<?php echo $row['product_id']?>" class="btn btn-info" role="button">Delete</a></td>
+										
+										
 									</tr>
 									<?php
 										}

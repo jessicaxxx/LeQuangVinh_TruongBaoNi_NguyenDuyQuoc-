@@ -4,12 +4,12 @@ class product extends db
 {
 	
 	public function category_product($category_id){
-		//2. viet cau truy van
+	
 		$sql = "SELECT product.product_id,name,price,image,detail FROM category,product WHERE  product.category_id= '$category_id' AND  product.category_id= category.category_id";
 	
-		//3.Thuc thi cau truy van
+
 		$result = self::$conn->query($sql);
-		//4.Chuyen object thanh mang
+	
 		$arr = array();
 		while($row = $result->fetch_assoc()){
 			$arr[] = $row;
@@ -53,6 +53,28 @@ class product extends db
 		$result = self::$conn->query($sql);
 		return $this->getdata($result);
 	}
+	public function ADDproduct_database($category_id,$name,$price,$detail,$image,$created,$modified){
+		$sql = "INSERT INTO product(category_id,name,price,detail,image,created,modified) VALUES ($category_id,'$name','$price','$detail','$image','$created','$modified')";
+		$result = self::$conn->query($sql);
+		return $result;
+	}
+	public function ADDproducts(){
+	$sql = "SELECT * FROM product,category WHERE product.category_id= category.category_id";
+	$result = self::$conn->query($sql);
+	return $this->getdata($result);
+	}
+	public function deleteproduct($product_id){
+		$sql = "DELETE FROM product WHERE product_id= $product_id";
+		$result = self::$conn->query($sql);
+		return $result;
+	}
+	public	function editProduct($category_id,$name,$price,$detail,$image,$created,$modified) {
+    $sql = "UPDATE product SET category_id = $category_id,name = '$name', 'price' = $price, detail = '$detail', image = '$image', created = '$created', modified = '$modified' WHERE product_id= $product_id";
+    $result = self::$conn->query($sql);
+    return $result;
+}
+
+
 
 	
 	

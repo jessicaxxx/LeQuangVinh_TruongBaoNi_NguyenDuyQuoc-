@@ -1,5 +1,10 @@
 <?php
-require_once '../dB.php';
+require "./app/config.php";
+
+spl_autoload_register(function  ($class_name) {
+require "/app/".$class_name .  '.php';
+});
+$product =  new product();
 $name = $_POST['name'];
 $category_id = $_POST['catalog'];
 $created = $_POST['created'];
@@ -23,10 +28,9 @@ if(isset($_POST["submit"])) {
         $uploadOk = 0;
     }
 }
-  $db = new db();
-$db->ADDproduct_database()
-if(ADDproduct_database($category_id,$name,$price,$detail,$image,$created,
-	$modified))
+
+$addproduct=$product->ADDproduct_database($category_id,$name,$price,$detail,$image,$created,$modified);
+if($addproduct)
 {
    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
    header('location:xemSanPham.php');
