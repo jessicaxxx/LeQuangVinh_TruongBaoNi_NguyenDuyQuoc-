@@ -52,24 +52,12 @@
 				      </div>
 				      <div id="danhmuc" class="panel-collapse collapse">
 				        <ul id="home" class="danhmuc">
-							<li><a href="themSanPham.html"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add Product  </a></li>
+							<li><a href="themSanPham.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add Product  </a></li>
 							<li><a href="xemSanPham.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  View Product </a></li>
 						</ul>
 				      </div>
 				    </div>
-					<div class="panel panel-default">
-				      <div class="panel-heading">
-				        <h4 class="panel-title">
-				          <a data-toggle="collapse" href="#thanhvien"><i class="fa fa-user" aria-hidden="true"></i>   Manager Catalog  </a>
-				        </h4>
-				      </div>
-				      <div id="thanhvien" class="panel-collapse collapse">
-				        <ul id="home" class="baiviet">
-							<li><a href="themdanhmuc.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add  Catalog </a></li>
-							<li><a href="xemdanhmuc.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  View Catalog </a></li>
-						</ul>
-				      </div>
-				    </div>
+			
 				</div>
 			</div>
 			<!--end .left-menu-->

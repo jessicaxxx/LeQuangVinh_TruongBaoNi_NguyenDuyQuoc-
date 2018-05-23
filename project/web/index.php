@@ -177,7 +177,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="w3l_banner_nav_right_banner1">
 								<h3>Make your <span>food</span> with Spicy.</h3>
 								<div class="more">
-									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+									<a href="products.php" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
 								</div>
 							</div>
 						</li>
@@ -268,7 +268,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="snipcart-thumb">
 								
                     			
-											<a href="single.html"><img  height="140" width="140" title=" " alt=" " src="images/<?php echo $row['image']?>" /></a>		
+											<a href="chitiet.php?id=<?php echo $row['product_id']?>"><img method="get" name="key"  height="120" width="120" title=" " alt=" " src="images/<?php echo $row['image']?>" /></a>		
 											<p><?php echo $row['name']?></p>
 											<h4><?php echo $row['price']?>$<span><?php echo $row['detail']?></span></h4>
 								
@@ -318,17 +318,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                        
                    ?>
+               
 		<div class="container">
 			<div class="top-brands">
+				<div class="text-center">
                      <ul class="pagination pagination-lg">
                      	
-   				<li><?php echo $pagination ?></li>
-
+   			<li><?php echo $pagination ?></li>
     				
   						</ul>
   						</div>
   				</div>
-<!-- //top-brands -->
+  				</div>
+  	<!-- //top-brands -->	
 <!-- fresh-vegetables -->
 	<div class="fresh-vegetables">
 		<div class="container">

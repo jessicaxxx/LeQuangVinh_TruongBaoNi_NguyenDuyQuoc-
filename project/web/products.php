@@ -76,8 +76,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-								<li><a href="login.html">Login</a></li> 
-								<li><a href="login.html">Sign Up</a></li>
+								<li><a href="login.php">Login</a></li> 
+								<li><a href="login.php">Sign Up</a></li>
 							</ul>
 						</div>                  
 					</div>	
@@ -241,7 +241,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="snipcart-thumb">
 								
                     			
-											<a href="single.html"><img  height="140" width="140" title=" " alt=" " src="images/<?php echo $row['image']?>" /></a>		
+											<a href="chitiet.php?id=<?php echo $row['product_id']?>"><img  height="140" width="140" title=" " alt=" " src="images/<?php echo $row['image']?>" /></a>		
 											<p><?php echo $row['name']?></p>
 											<h4><?php echo $row['price']?>$<span><?php echo $row['detail']?></span></h4>
 								

@@ -16,6 +16,13 @@ class product extends db
 		}
 		return $arr;
 	}
+	public function getProductById($id){
+		$sql ="SELECT * FROM product WHERE product_id = $id";
+		//var_dump($sql);
+		$result = self::$conn->query($sql);
+		return $this->getdata($result);
+	}
+
 	public function search($key){
 	$sql = "SELECT * FROM product WHERE name LIKE '%$key%'";
 	$result = self::$conn->query($sql);
@@ -38,7 +45,7 @@ class product extends db
 	}
 	public function getproducts($page,$count){
 	$start = ($page-1)*$count;
-	$sql = "SELECT * FROM product ORDER BY product_id DESC LIMIT $start,$count";
+	$sql = "SELECT * FROM product  ORDER BY  product_id DESC LIMIT $start,$count ";
 	$result = self::$conn->query($sql);
 	return $this->getdata($result);
 	}
@@ -53,8 +60,8 @@ class product extends db
 		$result = self::$conn->query($sql);
 		return $this->getdata($result);
 	}
-	public function ADDproduct_database($category_id,$name,$price,$detail,$image,$created,$modified){
-		$sql = "INSERT INTO product(category_id,name,price,detail,image,created,modified) VALUES ($category_id,'$name','$price','$detail','$image','$created','$modified')";
+	public function ADDproduct_database($category_id,$name,$price,$detail,$image,$created,$modified,$description){
+		$sql = "INSERT INTO product(category_id,name,price,detail,image,created,modified,description) VALUES ($category_id,'$name','$price','$detail','$image','$created','$modified','$description')";
 		$result = self::$conn->query($sql);
 		return $result;
 	}
@@ -68,15 +75,14 @@ class product extends db
 		$result = self::$conn->query($sql);
 		return $result;
 	}
-	public	function editProduct($category_id,$name,$price,$detail,$image,$created,$modified) {
-    $sql = "UPDATE product SET category_id = $category_id,name = '$name', 'price' = $price, detail = '$detail', image = '$image', created = '$created', modified = '$modified' WHERE product_id= $product_id";
+	public	function editProduct($id,$category_id,$name,$price,$detail,$image,$created,$modified,$description) {
+    $sql = "UPDATE product SET category_id = $category_id,name = '$name', price = $price, detail = '$detail', image = '$image', created = '$created', modified = '$modified', description = '$description' WHERE product_id = $id";
     $result = self::$conn->query($sql);
     return $result;
+
 }
 
 
-
-	
 	
 }
 ?>

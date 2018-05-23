@@ -81,6 +81,11 @@ class db
 		  	 } 
 		  	 return $link;
 	}
+	public function chitiet($key){
+$sql = "SELECT * FROM product WHERE product_id='$key'";
+	$result = self::$conn->query($sql);
+	return $this->getdata($result);
+	}
 
 	public function __destruct(){
 		self::$conn->close();

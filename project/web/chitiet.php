@@ -1,34 +1,23 @@
-
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <?php
 require "quantri/app/config.php";
-spl_autoload_register(function	($class_name)	
-{
+
+spl_autoload_register(function	($class_name)	{
 require	"./quantri/app/".$class_name .	'.php';
 });
 $product =	new	product();
-$users =new	users();
-if (isset($_POST['user'])) {
-	$user = $_POST['user'];
-	$pass = $_POST['pass'];
-	if ($users->login($user,$pass)) {
-		$_SESSION['user'] = $user;
-		header('location:quantri/');
-	}
-	else
 
-	{
-		echo "<font color='red'>login failed </font>";
-	}
-
-}
 
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>Grocery Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Sign In & Sign Up :: w3layouts</title>
+<title>Grocery Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Single :: w3layouts</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,6 +34,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
+ <script src='js/okzoom.js'></script>
+  <script>
+    $(function(){
+      $('#example').okzoom({
+        width: 150,
+        height: 150,
+        border: "1px solid black",
+        shadow: "0 0 5px #000"
+      });
+    });
+  </script>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!-- start-smoth-scrolling -->
@@ -89,8 +89,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-								<li><a href="login.php">Login</a></li> 
-								<li><a href="login.php">Sign Up</a></li>
+								<li><a href="login.html">Login</a></li> 
+								<li><a href="login.html">Sign Up</a></li>
 							</ul>
 						</div>                  
 					</div>	
@@ -121,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="logo_products">
 		<div class="container">
 			<div class="w3ls_logo_products_left">
-				<h1><a href="index.php"><span>Grocery</span> Store</a></h1>
+				<h1><a href="index.html"><span>Grocery</span> Store</a></h1>
 			</div>
 			<div class="w3ls_logo_products_left1">
 				<ul class="special_items">
@@ -145,8 +145,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="products-breadcrumb">
 		<div class="container">
 			<ul>
-				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
-				<li>Sign In & Sign Up</li>
+				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
+				<li>Single Page</li>
 			</ul>
 		</div>
 	</div>
@@ -154,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- banner -->
 	<div class="banner">
 		<div class="w3l_banner_nav_left">
-		<nav class="navbar nav_bottom">
+			<nav class="navbar nav_bottom">
 			 <!-- Brand and toggle get grouped for better mobile display -->
 			  <div class="navbar-header nav_2">
 				  <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
@@ -179,92 +179,165 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         }
                    		 ?>
 					</ul>
-
 				 </div><!-- /.navbar-collapse -->
 			</nav>
 		</div>
+		    <?php
+
+                        $product_id = $_GET['id'];
+                   
+                       $ggg = $product->getProductById($product_id);
+                       //var_dump($ggg);
+                    ?>
 		<div class="w3l_banner_nav_right">
-<!-- login -->
-
-		<div class="w3_login">
-			<h3>Sign In & Sign Up</h3>
-			<div class="w3_login_module">
-				<div class="module form-module">
-				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
-					<div class="tooltip">Click Me</div>
-				  </div>
-				  <div class="form">
-					<h2>Login to your account</h2>
-
-					<form action="login.php" method="post">
-					  <input type="text" name="user" placeholder="Username" required=" ">
-					  <input type="password" name="pass" placeholder="Password" required=" ">
-					  <input type="submit" name="" >
-					</form>
-				  </div>
-				  <div class="form">
-					<h2>Create an account</h2>
-					<form action="#" method="post">
-					  <input type="text" name="Username" placeholder="Username" required=" ">
-					  <input type="password" name="Password" placeholder="Password" required=" ">
-					  <input type="email" name="Email" placeholder="Email Address" required=" ">
-					  <input type="text" name="Phone" placeholder="Phone Number" required=" ">
-					  <input type="submit" value="Register">
-					</form>
-				  </div>
-				  <div class="cta"><a href="#">Forgot your password?</a></div>
-				</div>
+			<div class="w3l_banner_nav_right_banner3">
+				<h3>Best Deals For New Products<span class="blink_me"></span></h3>
 			</div>
-			<script>
-				$('.toggle').click(function(){
-				  // Switches the Icon
-				  $(this).children('i').toggleClass('fa-pencil');
-				  // Switches the forms  
-				  $('.form').animate({
-					height: "toggle",
-					'padding-top': 'toggle',
-					'padding-bottom': 'toggle',
-					opacity: "toggle"
-				  }, "slow");
-				});
-			</script>
-		</div>
-<!-- //login -->
+			<div class="agileinfo_single">
+		
+				<h5><?php echo $ggg[0]['name'] ?></h5>
+				<div class="col-md-4 agileinfo_single_left">
+					<img id="example" height="150" width="150" title=" " alt=" " src="images/<?php echo  $ggg[0]['image']?>"   class="img-responsive" />
+				</div>
+				<div class="col-md-8 agileinfo_single_right">
+					<div class="rating1">
+						<span class="starRating">
+							<input id="rating5" type="radio" name="rating" value="5">
+							<label for="rating5">5</label>
+							<input id="rating4" type="radio" name="rating" value="4">
+							<label for="rating4">4</label>
+							<input id="rating3" type="radio" name="rating" value="3" checked>
+							<label for="rating3">3</label>
+							<input id="rating2" type="radio" name="rating" value="2">
+							<label for="rating2">2</label>
+							<input id="rating1" type="radio" name="rating" value="1">
+							<label for="rating1">1</label>
+						</span>
+					</div>
+					<div class="w3agile_description">
+						<h4>Description :</h4>
+				
+							<p> <?php echo substr($ggg[0]['description'],0,80 ); ?><a href="detail.php?id=<?php echo $id; ?>">[...]</a></p>
+					</div>
+					<div class="snipcart-item block">
+						<div class="snipcart-thumb agileinfo_single_right_snipcart">
+							<h4><?php echo $ggg[0]['price'] ?> <span><?php echo $ggg[0]['detail']?></span></h4>
+						</div>
+						<div class="snipcart-details agileinfo_single_right_details">
+							<form action="#" method="post">
+								<fieldset>
+									<input type="hidden" name="cmd" value="_cart" />
+									<input type="hidden" name="add" value="1" />
+									<input type="hidden" name="business" value=" " />
+									<input type="hidden" name="item_name" value="pulao basmati rice" />
+									<input type="hidden" name="amount" value="21.00" />
+									<input type="hidden" name="discount_amount" value="1.00" />
+									<input type="hidden" name="currency_code" value="USD" />
+									<input type="hidden" name="return" value=" " />
+									<input type="hidden" name="cancel_return" value=" " />
+									<input type="submit" name="submit" value="Add to cart" class="button" />
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+		
+				<div class="clearfix"> </div>
+			</div>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 <!-- //banner -->
-<!-- newsletter-top-serv-btm -->
-	<div class="newsletter-top-serv-btm">
+<!-- brands -->
+	<div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_popular">
 		<div class="container">
-			<div class="col-md-4 wthree_news_top_serv_btm_grid">
-				<div class="wthree_news_top_serv_btm_grid_icon">
-					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+			<h3>Popular Brands</h3>
+				<?php
+		
+                        $page = isset($_GET['page'])?$_GET['page']:1;
+                        $count = 4;
+                        $getproducts = $product->getproducts($page,$count);
+              
+              
+                 	?>
+					<?php
+                       foreach($getproducts  as $row){
+                  						  ?>
+			<div class="agile_top_brands_grids">
+				<div class="col-md-3 top_brand_left">
+					<div class="hover14 column">
+						<div class="agile_top_brand_left_grid">
+							<div class="tag"><img src="images/tag.png" alt=" " class="img-responsive" /></div>
+							<div class="agile_top_brand_left_grid1">
+								<figure>
+									<div class="snipcart-item block" >
+										<div class="snipcart-thumb">
+								
+                    			
+											<a href="chitiet.php?id=<?php echo $row['product_id']?>"><img method="get" name="key"  height="120" width="120" title=" " alt=" " src="images/<?php echo $row['image']?>" /></a>		
+											<p><?php echo $row['name']?></p>
+											<h4><?php echo $row['price']?>$<span><?php echo $row['detail']?></span></h4>
+								
+										</div>
+
+										<div class="snipcart-details top_brand_home_details">
+											<form action="checkout.html" method="post">
+												<fieldset>
+													<input type="hidden" name="cmd" value="_cart" />
+													<input type="hidden" name="add" value="1" />
+													<input type="hidden" name="business" value=" " />
+													<input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+													<input type="hidden" name="amount" value="7.99" />
+													<input type="hidden" name="discount_amount" value="1.00" />
+													<input type="hidden" name="currency_code" value="USD" />
+													<input type="hidden" name="return" value=" " />
+													<input type="hidden" name="cancel_return" value=" " />
+													<input type="submit" name="submit" value="Add to cart" class="button" />
+												</fieldset>
+											
+											</form>
+											
+										</div>
+									</div>
+								</figure>
+								
+							</div>
+						</div>
+
+					</div>
+					
 				</div>
-				<h3>Nam libero tempore</h3>
-				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
-					saepe eveniet ut et voluptates repudiandae sint et.</p>
+				
+				<?php
+                       					 }
+                        				?>	
+				<div class="clearfix"> </div>
 			</div>
-			<div class="col-md-4 wthree_news_top_serv_btm_grid">
-				<div class="wthree_news_top_serv_btm_grid_icon">
-					<i class="fa fa-bar-chart" aria-hidden="true"></i>
-				</div>
-				<h3>officiis debitis aut rerum</h3>
-				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
-					saepe eveniet ut et voluptates repudiandae sint et.</p>
-			</div>
-			<div class="col-md-4 wthree_news_top_serv_btm_grid">
-				<div class="wthree_news_top_serv_btm_grid_icon">
-					<i class="fa fa-truck" aria-hidden="true"></i>
-				</div>
-				<h3>eveniet ut et voluptates</h3>
-				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
-					saepe eveniet ut et voluptates repudiandae sint et.</p>
-			</div>
-			<div class="clearfix"> </div>
 		</div>
+	
 	</div>
-<!-- //newsletter-top-serv-btm -->
+
+		 <?php 
+                        $base_url = $_SERVER['PHP_SELF'];
+                       $total_rows = $product->countproducts();
+                       $pagination=$product->pagination($base_url,$total_rows,$page,$count);
+
+                       
+                   ?>
+               
+		<div class="container">
+			<div class="top-brands">
+				<div class="text-center">
+                     <ul class="pagination pagination-lg">
+                     	
+   			<li><?php echo $pagination ?></li>
+    				
+  						</ul>
+  						</div>
+  				</div>
+  				</div>
+
+<!-- //brands -->
 <!-- newsletter -->
 	<div class="newsletter">
 		<div class="container">

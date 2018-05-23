@@ -20,7 +20,7 @@ $id=$_POST['id'];
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #f44336;
+  background-color: #4CAF50;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
@@ -80,7 +80,7 @@ $id=$_POST['id'];
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav navbar-right">
 			        <li><p class="text-center" style="padding-top: 15px;">Hello  <span style="color: red">Admin</span></p></li>
-			        <li><a href="index.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+			        <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
@@ -105,7 +105,7 @@ $id=$_POST['id'];
 				      </div>
 				      <div id="danhmuc" class="panel-collapse collapse">
 				        <ul id="home" class="danhmuc">
-							<li><a href="themSanPham.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add Product  </a></li>
+							<li><a href="themSanPham.html"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add Product  </a></li>
 							<li><a href="xemSanPham.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  View Product </a></li>
 
 						</ul>
@@ -113,7 +113,19 @@ $id=$_POST['id'];
 						</ul>
 				      </div>
 				    </div>
-					
+					<div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <a data-toggle="collapse" href="#thanhvien"><i class="fa fa-user" aria-hidden="true"></i>   Manager Catalog  </a>
+				        </h4>
+				      </div>
+				      <div id="thanhvien" class="panel-collapse collapse">
+				        <ul id="home" class="baiviet">
+							<li><a href="themdanhmuc.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  Add  Catalog </a></li>
+							<li><a href="xemdanhmuc.php"><i class="fa fa-angle-right" aria-hidden="true"></i>  View Catalog </a></li>
+						</ul>
+				      </div>
+				    </div>
 				</div>
 			</div>
 			<!--end .left-menu-->
@@ -126,7 +138,7 @@ $id=$_POST['id'];
 							<h4 class="text-center">View Product</h4>
 						</div>
 						<div class="w3l_search">
-						<form action="result.php" method="get" width="25" height="50">
+						<form action="result2.php" method="get" width="25" height="50">
 						<input type="text" name="key" width="25" height="50">
 						<input type="submit" value="search">
 							</form>
@@ -138,19 +150,19 @@ $id=$_POST['id'];
 									<tr class="bg-info">
 										<td>id</td>
 										<td>Name</td>
-										<td>Price</td>
+										<td>price</td>
 										<td>Discout</td>
 										<td>Image</td>
-										<td>Edit</td>
-										<td>Delete</td>
+										<td>edit</td>
+										<td>delete</td>
 									</tr>
-									<?php
-									//$products = $product->ADDproducts();
-									$page = isset($_GET['page'])?$_GET['page']:1;
-                      			  		$count = 4;
-                      				  $getproducts = $product->getproducts($page,$count);
-									foreach($getproducts as $row){
-									?>
+											<?php
+								 $key =$_GET['key']; 
+											$search = $product->search($key);      
+                 							?>
+												<?php
+                       					foreach($search  as $row){
+                  						  ?>
 									<tr>
 										<td><?php echo $row['product_id']?></td>
 										<td><?php echo $row['name']?></td>
@@ -159,7 +171,7 @@ $id=$_POST['id'];
 										<td><img   height="140" width="140" src="../images/<?php echo $row['image']?>" /></td>
 									
 										<td><a href="editform.php?id=<?php echo $row['product_id']?>" class="btn btn-info" role="button">Edit</a></td>
-										<td ><a href="delete.php?id=<?php echo $row['product_id']?>" class="button" role="button" >Delete</a></td>
+										<td><a href="delete.php?id=<?php echo $row['product_id']?>" class="btn btn-info" role="button">Delete</a></td>
 										
 										
 									</tr>
@@ -167,25 +179,8 @@ $id=$_POST['id'];
 										}
 									?>
 								</table>							
- <?php 
-                        $base_url = $_SERVER['PHP_SELF'];
-                       $total_rows = $product->countproducts();
-                       $pagination=$product->pagination($base_url,$total_rows,$page,$count);
-
-                       
-                   ?>
-               
-		<div class="container">
-			<div class="top-brands">
-				<div class="text-center">
-                     <ul class="pagination pagination-lg">
-                     	
-   			<li><?php echo $pagination ?></li>
-    				
-  						</ul>
-  						</div>
-  				</div>
-  				</div>
+ 
+       
 					</div><!--end .content-->
 				</div>
 		</div>

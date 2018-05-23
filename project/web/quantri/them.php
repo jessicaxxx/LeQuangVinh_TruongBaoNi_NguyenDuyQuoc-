@@ -1,8 +1,7 @@
 <?php
 require "./app/config.php";
-
 spl_autoload_register(function  ($class_name) {
-require "/app/".$class_name .  '.php';
+require "./app/".$class_name .  '.php';
 });
 $product =  new product();
 $name = $_POST['name'];
@@ -11,6 +10,7 @@ $created = $_POST['created'];
 $modified = $_POST['modified'];
 $detail = $_POST['detail'];
 $price= $_POST['price'];
+$description= $_POST['description'];
 $image = $_FILES["fileToUpload"]["name"];
 $target_dir = "../images/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -28,9 +28,9 @@ if(isset($_POST["submit"])) {
         $uploadOk = 0;
     }
 }
-
-$addproduct=$product->ADDproduct_database($category_id,$name,$price,$detail,$image,$created,$modified);
-if($addproduct)
+ 
+$ADDe = $product->ADDproduct_database($category_id,$name,$price,$detail,$image,$created,$modified,$description);
+if($ADDe)
 {
    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
    header('location:xemSanPham.php');
@@ -38,3 +38,5 @@ if($addproduct)
 {
     echo "upload not success";
 }
+
+
